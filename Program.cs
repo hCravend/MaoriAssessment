@@ -326,6 +326,7 @@
             Console.Write("Would you like to play again? (Y/N): ");
             retry = Console.ReadLine().ToUpper();
 
+            //while loop that validates the user's input for (Y/N)
             while (retry != "Y" && retry != "N") 
             {
                 Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
@@ -395,7 +396,7 @@
                 {//START OF SWITCH LOOP
                     case "A":
                         Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                        score = score + 1;
+                        score++;
                         break;
                     case "B":
                         Console.WriteLine($"\nNice try {name}! The correct answer is A. Kia ora");
@@ -408,10 +409,218 @@
                         break;
                 }//END OF SWITCH LOOP
 
-                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
                 Console.ReadKey();
                 Console.Clear();
             }//end of for loop (FIRST QUESTION)
+
+            
+            
+            //for loop for the SECOND QUESTION
+            for (int i = 1; i < 2; i++)
+            {//start of for loop (SECOND QUESTION)
+
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("Amount of questions left: 3");
+
+                string userAnswer = "";
+
+                Console.WriteLine($"\n{MedQ[1]}");
+                Console.WriteLine("A. Haka\r\nB. Waiata\r\nC. Karakia\r\nD. Kapa haka");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of whie loop 
+
+                switch (userAnswer)
+
+                {//START OF SWITCH LOOP
+                    case "A":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kapa haka");
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kapa haka");
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kapa haka");
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                        score++;
+                        break;
+                }//END OF SWITCH LOOP
+
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop (SECOND QUESTION)
+
+            //for loop for the THIRD QUESTION
+            for (int i = 1; i < 2; i++)
+            {//start of for loop for loop (THIRD QUESTION)
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("Amount of questions left: 2");
+
+                string userAnswer = "";
+
+                Console.WriteLine($"\n{MedQ[2]}");
+                Console.WriteLine("A. Te Rauparaha\r\nB. Te Wherowhero\r\nC. Te Puea Herangi\r\nD. Hone Heke");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of whie loop 
+
+                switch (userAnswer)
+
+                {//START OF SWITCH LOOP
+                    case "A":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Wherowhero");
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
+                        score++;
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Wherowhero");
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Wherowhero");
+                        break;
+                }//END OF SWITCH LOOP
+
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop (THIRD QUESTION)
+
+            
+            
+            //for loop for the FOURTH QUESTIONS
+            for (int i = 1; i < 2; i++)
+            {//start of for loop for loop (FOURTH QUESTION)
+
+                string userAnswer = "";
+
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("Amount of questions left: 1");
+
+                Console.WriteLine($"\n{MedQ[3]}");
+                Console.WriteLine("A. Hapū\r\nB. Hangi\r\nC. Hui\r\nD. Haka");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of whie loop 
+
+                switch (userAnswer)
+
+                {//START OF SWITCH LOOP
+                    case "A":
+                        Console.WriteLine($"\nNice try {name}!The correct answer is B. Hangi");
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
+                        score++;
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Hangi");
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Hangi");
+                        break;
+                }//END OF SWITCH LOOP
+
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop (FOURTH QUESTION)
+
+
+            //for loop for the FIFTH QUESTION
+            for (int i = 1; i < 2; i++)
+            {//start of for loop for loop (FIFTH QUESTION)
+
+                string userAnswer = "";
+
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("FINAL QUESTION");
+
+                Console.WriteLine($"\n{MedQ[4]}");
+                Console.WriteLine("A. Hine-nui-te-pō\r\nB. Tawhiri-mātea\r\nC. Tangaroa\r\nD. Rongo-mai");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = (Console.ReadLine().ToUpper());
+                }//end of whie loop 
+
+                switch (userAnswer)
+
+                {//START OF SWITCH LOOP
+                    case "A":
+                        Console.WriteLine($"\nNice try {name}!The correct answer is C. Tangaroa");
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Tangaroa");
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
+                        score++;
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Tangaroa");
+                        break;
+                }//END OF SWITCH LOOP
+
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop (FIFTH QUESTION)
+
+            string retry = "";
+
+            Console.WriteLine($"Congratulations {name}! Your scored {score}/5 good job!");
+            Console.Write("Would you like to try again? (Y/N): ");
+            retry = Console.ReadLine().ToUpper();
+
+            //while loop that validates the user's input for (Y/N)
+            while (retry != "Y" && retry != "N")
+            {
+                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
+                retry = Console.ReadLine().ToUpper();
+            }
+
+            switch (retry)
+            {
+                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
+                case "Y":
+                    Console.Clear();
+                    menu(name);
+                    break;
+                //if the user chooses "N" a goodbye message will appear and will thank the use for playing
+                case "N":
+                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
+                    break;
+            }
+
+
 
         }//end of medium method
 
