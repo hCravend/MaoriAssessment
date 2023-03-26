@@ -54,23 +54,35 @@
             }
 
 
-
-
-
+            //The switch statement is selecting a function to execute based on the value of the "difficulty" variable.
+             switch (difficulty)
+            {
+                case "1":
+                    Easy(name);
+                    break;
+                case "2":
+                    Medium(name);
+                    break;
+                case "3":
+                    Hard(name);
+                    break;
+            }
 
         }//end of menu method
 
-        static void Easy()
+        static void Easy(string name)
         {//start of easy method
+
+
 
         }//end of easy method
 
-        static void Medium()
+        static void Medium(string name)
         {//start of medium method
 
         }//end of medium method
 
-        static void Hard()
+        static void Hard(string name)
         {//start of hard method
 
         }//end of hard method
