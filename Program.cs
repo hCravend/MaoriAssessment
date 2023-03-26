@@ -242,7 +242,7 @@
                 Console.WriteLine("Amount of questions left: 1");
 
                 Console.WriteLine($"\n{EasyQ[3]}");
-                Console.WriteLine("A. Whānau\r\nB. Hapū\r\nC.   Marae\r\nD. Iwi");
+                Console.WriteLine("A. Whānau\r\nB. Hapū\r\nC. Marae\r\nD. Iwi");
                 Console.Write("Please choose an answer:");
                 userAnswer = Console.ReadLine().ToUpper();
 
@@ -351,7 +351,67 @@
         static void Medium(string name)
         {//start of medium method
 
-            Console.WriteLine( "HI2");
+            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
+            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
+            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
+            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+            Console.ReadKey();//makes the user press a key before continuing the test
+            Console.Clear();
+
+            //stores all of the medium questions
+            string[] MedQ = new string[5];
+            MedQ[0] = "What is the traditional Maori greeting called?";
+            MedQ[1] = "What is the name of the Maori cultural dance?";
+            MedQ[2] = "Which famous Maori leader signed the Treaty of Waitangi on behalf of the Maori people in 1840?";
+            MedQ[3] = "What is the traditional Maori method of cooking food using heated rocks in a pit?";
+            MedQ[4] = "What is the name of the Maori goddess of the sea?";
+
+            int score = 0;
+
+            //for loop for the first question
+            for (int i = 1; i < 2; i++)
+            {//start of for loop (FIRST QUESTION)
+
+                string userAnswer = "";
+
+
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("Amount of questions left: 4");
+
+                Console.WriteLine($"\n{MedQ[0]}");
+                Console.WriteLine("A. Kia ora\r\nB. Haere mai\r\nC. Whakapapa\r\nD. Tino rangatiratanga");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of whie loop 
+
+                switch (userAnswer)
+                //This switch loop determines the choices and displays a message if the answer if correct or not
+                {//START OF SWITCH LOOP
+                    case "A":
+                        Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                        score = score + 1;
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kia ora");
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kia ora");
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Kia ora");
+                        break;
+                }//END OF SWITCH LOOP
+
+                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop (FIRST QUESTION)
 
         }//end of medium method
 
