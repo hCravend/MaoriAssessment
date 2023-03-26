@@ -37,6 +37,26 @@
 
         static void menu(string name)
         {//start of menu method
+            
+            string difficulty = ""; //used string instead of int so when the user enters a number or nothing it will still display the error message
+            
+            Console.WriteLine($"Please choose a difficulty {name}:");
+            Console.WriteLine("1. Easy\n2. Medium\n3. Hard");
+            Console.Write("Please enter a number 1-3: ");
+            difficulty = Console.ReadLine();
+
+            //while loop validating the choices, if the user doesnt enter between (1-3) it will display the error message
+            
+            while (difficulty != "1" && difficulty != "2" && difficulty != "3")
+            {
+                Console.Write($"\nInvalid input, {difficulty} is  not a valid choice. Please enter a number between 1-3: ");
+                difficulty = (Console.ReadLine());
+            }
+
+
+
+
+
 
         }//end of menu method
 
