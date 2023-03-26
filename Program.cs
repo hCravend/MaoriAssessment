@@ -23,11 +23,16 @@
         static void start()
         {//start of start method
 
-
+            
+            Console.WriteLine("Welcome to the Maori Quiz!"); //greets the user
+            Console.Write("Please input your name: "); //asks the user to input their name
+            string name = Console.ReadLine();
+            Console.WriteLine($"\nHello {name}! Welcome to the Maori Quiz!"); //displays the name
+            menu(name);
 
         }//end of start method
 
-        static void menu()
+        static void menu(string name)
         {//start of menu method
 
         }//end of menu method
