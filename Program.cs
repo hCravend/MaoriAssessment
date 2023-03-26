@@ -94,6 +94,8 @@
             //for loop for the first question
             for (int i = 1;  i  < 2; i++)
             {//start of for loop (FIRST QUESTION)
+               
+                
                 string userAnswer = "";
 
                 Console.WriteLine("Score:" + score);
@@ -130,11 +132,14 @@
                         break;
                 }//end of switch loop
 
-                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
+                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
                 Console.ReadKey();
                 Console.Clear();
 
+
             }//end of for loop (FIRST QUESTION)
+
+            
 
         }//end of easy method
 
