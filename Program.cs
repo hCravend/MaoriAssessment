@@ -17,6 +17,7 @@
             Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 1 point and will be displayed.");
             Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
+            Console.Clear();
             start();
         }//end of main method
 
@@ -28,6 +29,8 @@
             Console.Write("Please input your name: "); //asks the user to input their name
             string name = Console.ReadLine();
             Console.WriteLine($"\nHello {name}! Welcome to the Maori Quiz!"); //displays the name
+            Console.WriteLine("\n\t\t\t------PRESS ANY KEY TO CONTINUE------");
+            Console.ReadKey();
             menu(name);
 
         }//end of start method
