@@ -31,6 +31,7 @@
             Console.WriteLine($"\nHello {name}! Welcome to the Maori Quiz!"); //displays the name
             Console.WriteLine("\n\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
+            Console.Clear();
             menu(name);
 
         }//end of start method
@@ -73,17 +74,21 @@
         static void Easy(string name)
         {//start of easy method
 
-
+            Console.WriteLine("HI");
 
         }//end of easy method
 
         static void Medium(string name)
         {//start of medium method
 
+            Console.WriteLine( "HI2");
+
         }//end of medium method
 
         static void Hard(string name)
         {//start of hard method
+
+            Console.WriteLine("HUHA");
 
         }//end of hard method
     }
