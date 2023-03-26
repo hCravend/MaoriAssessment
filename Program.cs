@@ -13,7 +13,10 @@
 
 
             Console.WriteLine("Welcome to the Maori Quiz! In this quiz you will get to choose between three difficulties easy, medium, and hard.");
-            Console.WriteLine()
+            Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 1 point and will be displayed.");
+            Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+
+
         }
     }
 }
