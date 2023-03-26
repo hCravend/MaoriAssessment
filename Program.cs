@@ -93,7 +93,7 @@
 
             //for loop for the first question
             for (int i = 1;  i  < 2; i++)
-            {
+            {//start of for loop (FIRST QUESTION)
                 string userAnswer = "";
 
                 Console.WriteLine("Score:" + score);
@@ -103,7 +103,38 @@
                 Console.WriteLine("A. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa");
                 Console.Write("Please choose an answer:");
                 userAnswer = Console.ReadLine().ToUpper();
-            }
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of whie loop 
+
+                
+                //switch statement that determines if the choice is correct or not  and will display a message, if the choice is correct it will add 1 point to the score
+                switch (userAnswer)
+                {//start of switch loop
+                    case "A":
+                        Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                        score++;
+                        break;
+                    case "B":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
+                        break;
+                    case "C":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
+                        break;
+                    case "D":
+                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
+                        break;
+                }//end of switch loop
+
+                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
+                Console.ReadKey();
+                Console.Clear();
+
+            }//end of for loop (FIRST QUESTION)
 
         }//end of easy method
 
