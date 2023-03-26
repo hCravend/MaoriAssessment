@@ -74,7 +74,20 @@
         static void Easy(string name)
         {//start of easy method
 
-            Console.WriteLine("HI");
+            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
+            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
+            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
+            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+            Console.ReadKey();//makes the user press a key before continuing the test
+            Console.Clear();
+
+            //stores all of the easy questions
+            string[] EasyQ = new string[5];
+            EasyQ[0] = "What is the name of the country where the Maori people are indigenous?";
+            EasyQ[1] = "What is the Maori word for \"goodbye\"?";
+            EasyQ[2] = "What is the name of the famous Maori warrior who is known for his facial tattoos?";
+            EasyQ[3] = "What is the Maori word for \"family\"?";
+            EasyQ[4] = "What is the name of the Maori ritual in which a newborn baby is introduced to their family and community?";
 
         }//end of easy method
 
