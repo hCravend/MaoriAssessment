@@ -89,6 +89,22 @@
             EasyQ[3] = "What is the Maori word for \"family\"?";
             EasyQ[4] = "What is the name of the Maori ritual in which a newborn baby is introduced to their family and community?";
 
+            int score = 0;
+
+            //for loop for the first question
+            for (int i = 1;  i  < 2; i++)
+            {
+                string userAnswer = "";
+
+                Console.WriteLine("Score:" + score);
+                Console.WriteLine("Amount of questions left: 4");
+
+                Console.WriteLine($"\n{EasyQ[0]}");
+                Console.WriteLine("A. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa");
+                Console.Write("Please choose an answer:");
+                userAnswer = Console.ReadLine().ToUpper();
+            }
+
         }//end of easy method
 
         static void Medium(string name)
