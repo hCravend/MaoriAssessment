@@ -331,6 +331,19 @@
                 Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
                 retry = Console.ReadLine().ToUpper();
             }
+
+            switch(retry)
+            {
+                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
+                case "Y": 
+                    Console.Clear();
+                    menu(name);
+                    break;
+                //if the user chooses "N" a goodbye message will appear and will thank the use for playing
+                case "N":
+                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
+                    break;
+            }
         
         
         }//end of easy method
