@@ -320,7 +320,7 @@
                 Console.Clear();
             }//end of for loop (FIFTH QUESTION)
 
-
+            string retry = "";
 
         }//end of easy method
 
