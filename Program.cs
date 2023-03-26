@@ -3,7 +3,8 @@
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {//start of main method
+            
             /*The game displays a menu of difficulty levels to choose from, and the player selects one. After selecting a difficulty level, the game clears the console and displays instructions for the quiz.
 
               The quiz consists of 5 multiple-choice questions, with each correct answer adding one point to the player's score. The game displays the player's score and the number of questions remaining after each question. The game loops through each question using a for loop with an iteration of 1.
@@ -15,8 +16,35 @@
             Console.WriteLine("Welcome to the Maori Quiz! In this quiz you will get to choose between three difficulties easy, medium, and hard.");
             Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 1 point and will be displayed.");
             Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+            Console.ReadKey();
+            start();
+        }//end of main method
+
+        static void start()
+        {//start of start method
 
 
-        }
+
+        }//end of start method
+
+        static void menu()
+        {//start of menu method
+
+        }//end of menu method
+
+        static void Easy()
+        {//start of easy method
+
+        }//end of easy method
+
+        static void Medium()
+        {//start of medium method
+
+        }//end of medium method
+
+        static void Hard()
+        {//start of hard method
+
+        }//end of hard method
     }
 }
