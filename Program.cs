@@ -322,6 +322,10 @@
 
             string retry = "";
 
+            Console.WriteLine($"Congratulations {name}! You scored {score}/5 good job!");
+            Console.Write("Would you like to play again? (Y/N): ");
+            retry = Console.ReadLine().ToUpper();
+
         }//end of easy method
 
         static void Medium(string name)
