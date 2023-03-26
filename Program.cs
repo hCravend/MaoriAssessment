@@ -326,6 +326,13 @@
             Console.Write("Would you like to play again? (Y/N): ");
             retry = Console.ReadLine().ToUpper();
 
+            while (retry != "Y" && retry != "N") 
+            {
+                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
+                retry = Console.ReadLine().ToUpper();
+            }
+        
+        
         }//end of easy method
 
         static void Medium(string name)
