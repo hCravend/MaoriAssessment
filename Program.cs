@@ -660,12 +660,15 @@
             HardA[4] = "C";
 
             int score = 0;
+            int Qnum = 1;
             string userAnswer;
            
 
 
             for(int i = 0; i < 5; i++)
             {
+                Console.WriteLine($"Score:{score}");
+                Console.WriteLine($"Question {Qnum}");
                 Console.WriteLine(HardQ[i]);
                 Console.Write("Please choose an answer: ");
                 userAnswer = Console.ReadLine().ToUpper();
@@ -680,18 +683,47 @@
                 if (userAnswer.Contains(HardA[i])) 
                 {
                     Console.WriteLine($"Good job {name}! That was the correct answer <3");
+                    score++;
+                    
                 }
                 else if (userAnswer != HardA[i])
                 {
                     Console.WriteLine($"Nice try {name}! The correct answer was {HardA[i]}");
+                    
                 }
 
-                Console.WriteLine("")
+                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
                 Console.ReadKey();
+                Qnum++;
+                Console.Clear();
             }
 
+            string retry = "";
 
-                
+            Console.WriteLine($"Congratulations {name}! Your scored {score}/5 good job!");
+            Console.Write("Would you like to try again? (Y/N): ");
+            retry = Console.ReadLine().ToUpper();
+
+            //while loop that validates the user's input for (Y/N)
+            while (retry != "Y" && retry != "N")
+            {
+                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
+                retry = Console.ReadLine().ToUpper();
+            }
+
+            switch (retry)
+            {
+                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
+                case "Y":
+                    Console.Clear();
+                    menu(name);
+                    break;
+                //if the user chooses "N" a goodbye message will appear and will thank the user for playing and end the quiz.
+                case "N":
+                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
+                    break;
+            }
+
 
 
         }//end of hard method
