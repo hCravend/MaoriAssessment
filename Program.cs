@@ -23,16 +23,25 @@
 
         static void start()
         {//start of start method
-
+            
             
             Console.WriteLine("Welcome to the Maori Quiz!"); //greets the user
             Console.Write("Please input your name: "); //asks the user to input their name
             string name = Console.ReadLine();
+
+            while (name == "")
+            {//start of while statement
+                Console.Write("\nNopeee you need to enter your name ._.:");
+                name = Console.ReadLine();
+            }//end of while statement
+            
             Console.WriteLine($"\nHello {name}! Welcome to the Maori Quiz!"); //displays the name
             Console.WriteLine("\n\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
             menu(name);
+
+            
 
         }//end of start method
 
@@ -340,7 +349,7 @@
                     Console.Clear();
                     menu(name);
                     break;
-                //if the user chooses "N" a goodbye message will appear and will thank the use for playing
+                //if the user chooses "N" a goodbye message will appear and will thank the use for playing  and end the quiz
                 case "N":
                     Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
                     break;
@@ -568,8 +577,8 @@
                 while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
                 {//start of while loop
                     Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
-                    userAnswer = (Console.ReadLine().ToUpper());
-                }//end of whie loop 
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of while loop 
 
                 switch (userAnswer)
 
@@ -614,7 +623,7 @@
                     Console.Clear();
                     menu(name);
                     break;
-                //if the user chooses "N" a goodbye message will appear and will thank the use for playing
+                //if the user chooses "N" a goodbye message will appear and will thank the user for playing and end the quiz.
                 case "N":
                     Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
                     break;
@@ -626,9 +635,65 @@
 
         static void Hard(string name)
         {//start of hard method
+           
+            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
+            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
+            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
+            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+            Console.ReadKey();//makes the user press a key before continuing the test
+            Console.Clear();
 
-            Console.WriteLine("HUHA");
+            //stores all of the hard questions in an array
+            string[] HardQ = new string[5];
+            HardQ[0] = "\nWhat is the name of the sacred Maori mountain located in the central North Island of New Zealand\nA. Taranaki\r\nB. Tongariro\r\nC. Aoraki\r\nD. Ruapehu";
+            HardQ[1] = "\nWhat is the name of the Maori language commission responsible for promoting and protecting the Maori language in New Zealand?\nA. Te Puni Kokiri\r\nB. Te Taura Whiri i te Reo Maori\r\nC. Te Mangai Paho\r\nD. Te Whakakitenga Maori";
+            HardQ[2] = "\nWhat is the name of the Maori goddess of the forest?\nA. Hine-nui-te-po\r\nB. Tane Mahuta\r\nC. Papatuanuku\r\nD. Ranginui";
+            HardQ[3] = "\nWhat is the name of the traditional Maori art form that involves the carving of wood or stone?\r\nA. Whakairo\r\nB. Raranga\r\nC. Ta moko\r\nD. Kapa haka";
+            HardQ[4] = "\nWhat is the name of the famous Maori leader who led the Taranaki iwi during the New Zealand Wars of the 1860s\r\nA. Te Rauparaha\r\nB. Wiremu Kingi\r\nC. Te Whiti o Rongomai\r\nD. Hone Heke";
+
+            //stores all of the answers for each question
+            string[] HardA = new string[5];
+            HardA[0] = "B";
+            HardA[1] = "B";
+            HardA[2] = "B";
+            HardA[3] = "A";
+            HardA[4] = "C";
+
+            int score = 0;
+            string userAnswer;
+           
+
+
+            for(int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(HardQ[i]);
+                Console.Write("Please choose an answer: ");
+                userAnswer = Console.ReadLine().ToUpper();
+
+                //while loop validating the choices 
+                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+                {//start of while loop
+                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
+                    userAnswer = Console.ReadLine().ToUpper();
+                }//end of while loop
+
+                if (userAnswer.Contains(HardA[i])) 
+                {
+                    Console.WriteLine($"Good job {name}! That was the correct answer <3");
+                }
+                else if (userAnswer != HardA[i])
+                {
+                    Console.WriteLine($"Nice try {name}! The correct answer was {HardA[i]}");
+                }
+
+                Console.WriteLine("")
+                Console.ReadKey();
+            }
+
+
+                
+
 
         }//end of hard method
     }
-}
+} 
