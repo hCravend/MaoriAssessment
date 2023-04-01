@@ -94,27 +94,30 @@ namespace MaoriAssessment
 
             //stores all of the easy questions
             string[] EasyQ = new string[5];
-            EasyQ[0] = "What is the name of the country where the Maori people are indigenous?";
-            EasyQ[1] = "What is the Maori word for \"goodbye\"?";
-            EasyQ[2] = "What is the name of the famous Maori warrior who is known for his facial tattoos?";
-            EasyQ[3] = "What is the Maori word for \"family\"?";
-            EasyQ[4] = "What is the name of the Maori ritual in which a newborn baby is introduced to their family and community?";
+            EasyQ[0] = "\nWhat is the name of the country where the Maori people are indigenous?\nA. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa";
+            EasyQ[1] = "\nWhat is the Maori word for \"goodbye\"\nA. Kia ora\r\nB. Haere mai\r\nC. Ka kite ano\r\nD. Aroha mai?";
+            EasyQ[2] = "\nWhat is the name of the famous Maori warrior who is known for his facial tattoos?\nA. Tūhoe\r\nB. Te Rauparaha\r\nC. Tāne Mahuta\r\nD. Māui";
+            EasyQ[3] = "\nWhat is the Maori word for \"family\"\nA. Whānau\r\nB. Hapū\r\nC. Marae\r\nD. Iwi?";
+            EasyQ[4] = "\nWhat is the name of the Maori ritual in which a newborn baby is introduced to their family and community?\nA. Karakia\r\nB. Hongi\r\nC. Powhiri\r\nD. Haka";
 
+            //stores all of the easy answers
+            string[] EasyA = new string[5];
+            EasyA[0] = "A";
+            EasyA[1] = "C";
+            EasyA[2] = "B";
+            EasyA[3] = "A";
+            EasyA[4] = "C";
+            
+            string userAnswer;
             int score = 0;
+            int Qnum = 1;
 
-            //for loop for the first question
-            for (int i = 1;  i  < 2; i++)
-            {//start of for loop (FIRST QUESTION)
-               
-                
-                string userAnswer = "";
-
-                Console.WriteLine("Score:" + score);
-                Console.WriteLine("Amount of questions left: 4");
-
-                Console.WriteLine($"\n{EasyQ[0]}");
-                Console.WriteLine("A. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa");
-                Console.Write("Please choose an answer:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Score:{score}");
+                Console.WriteLine($"Question {Qnum}");
+                Console.WriteLine(EasyQ[i]);
+                Console.Write("Please choose an answer: ");
                 userAnswer = Console.ReadLine().ToUpper();
 
                 //while loop validating the choices 
@@ -122,220 +125,49 @@ namespace MaoriAssessment
                 {//start of while loop
                     Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
                     userAnswer = Console.ReadLine().ToUpper();
-                }//end of whie loop 
+                }//end of while loop
 
-                
-                //switch statement that determines if the choice is correct or not  and will display a message, if the choice is correct it will add 1 point to the score
-                switch (userAnswer)
-                {//start of switch loop
-                    case "A":
-                        Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                        score++;
-                        break;
-                    case "B":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
-                        break;
-                    case "C":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
-                        break;
-                    case "D":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. New Zealand");
-                        break;
-                }//end of switch loop
+                if (userAnswer.Contains(EasyA[i]))
+                {
+                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                    score = score + 2;
 
-                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+                }
+                else if (userAnswer != EasyA[i])
+                {
+                    Console.WriteLine($"\nNice try {name}! The correct answer was {EasyA[i]}");
+
+                }
+
+                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
                 Console.ReadKey();
+                Qnum++;
                 Console.Clear();
+            }
 
 
-            }//end of for loop (FIRST QUESTION)
 
-            
-            
-            //for loop for the (SECOND QUESTION)
-            for (int i = 1; i < 2; i++)
-            {//start of for loop (SECOND QUESTION)
+            //if statement determining the passing score for the quiz
+            if (score < 6)
+            {
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
+            }
+            else if (score > 7)
+            {
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
+            }
 
-                Console.WriteLine("Score:" + score);
-                Console.WriteLine("Amount of questions left: 3");
+            Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+            Console.ReadKey();
+            Console.Clear();
 
-                string userAnswer = "";
 
-                Console.WriteLine($"\n{EasyQ[1]}");
-                Console.WriteLine("A. Kia ora\r\nB. Haere mai\r\nC. Ka kite ano\r\nD. Aroha mai");
-                Console.Write("Please choose an answer:");
-                userAnswer = Console.ReadLine().ToUpper();
 
-                //while loop validating the choices 
-                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
-                {//start of while loop
-                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
-                    userAnswer = Console.ReadLine().ToUpper();
-                }//end of whie loop 
 
-                switch (userAnswer)
-
-                {//START OF SWITCH LOOP
-                    case "A":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Ka kite ano");
-                        break;
-                    case "B":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Ka kite ano");
-                        break;
-                    case "C":
-                        Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                        score++;
-                        break;
-                    case "D":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Ka kite ano");
-                        break;
-                }//END OF SWITCH LOOP
-
-                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
-                Console.ReadKey();
-                Console.Clear();
-
-            }//end of for loop (SECOND QUESTION)
-
-            
-            
-            //for loop for the THIRD QUESTION
-            for (int i = 1; i < 2; i++)
-            {//start of for loop for loop (THIRD QUESTION)
-                Console.WriteLine("Score:" + score);
-                Console.WriteLine("Amount of questions left: 2");
-
-                string userAnswer = "";
-
-                Console.WriteLine($"\n{EasyQ[2]}");
-                Console.WriteLine("A. Tūhoe\r\nB. Te Rauparaha\r\nC. Tāne Mahuta\r\nD. Māui");
-                Console.Write("Please choose an answer:");
-                userAnswer = Console.ReadLine().ToUpper();
-
-                //while loop validating the choices 
-                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
-                {//start of while loop
-                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
-                    userAnswer = Console.ReadLine().ToUpper();
-                }//end of whie loop 
-
-                switch (userAnswer)
-
-                {//START OF SWITCH LOOP
-                    case "A":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Rauparaha");
-                        break;
-                    case "B":
-                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
-                        score++;
-                        break;
-                    case "C":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Rauparaha");
-                        break;
-                    case "D":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is B. Te Rauparaha");
-                        break;
-                }//END OF SWITCH LOOP
-
-                Console.WriteLine("\n\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop (third question)
-
-            
-            //for loop for the (FOURTH QUESTION)
-            for (int i = 1; i < 2; i++)
-            {//start of for loop for loop (FOURTH QUESTION)
-
-                string userAnswer = "";
-
-                Console.WriteLine("Score:" + score);
-                Console.WriteLine("Amount of questions left: 1");
-
-                Console.WriteLine($"\n{EasyQ[3]}");
-                Console.WriteLine("A. Whānau\r\nB. Hapū\r\nC. Marae\r\nD. Iwi");
-                Console.Write("Please choose an answer:");
-                userAnswer = Console.ReadLine().ToUpper();
-
-                //while loop validating the choices 
-                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
-                {//start of while loop
-                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
-                    userAnswer = Console.ReadLine().ToUpper();
-                }//end of whie loop 
-
-                switch (userAnswer)
-
-                {//START OF SWITCH LOOP
-                    case "A":
-                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
-                        score++;
-                        break;
-                    case "B":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Whānau");
-                        break;
-                    case "C":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Whānau");
-                        break;
-                    case "D":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is A. Whānau");
-                        break;
-                }//END OF SWITCH LOOP
-
-                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop (FOURTH QUESTION)
-
-            //for loop for the fifth question
-            for (int i = 1; i < 2; i++)
-            {//start of for loop for loop (FIFTH QUESTION)
-
-                string userAnswer = "";
-
-                Console.WriteLine("Score:" + score);
-                Console.WriteLine("FINAL QUESTION");
-
-                Console.WriteLine($"\n{EasyQ[4]}");
-                Console.WriteLine("A. Karakia\r\nB. Hongi\r\nC. Powhiri\r\nD. Haka");
-                Console.Write("Please choose an answer:");
-                userAnswer = Console.ReadLine().ToUpper();
-
-                //while loop validating the choices 
-                while (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
-                {//start of while loop
-                    Console.Write($"\n{userAnswer} is not a valid choice. Please choose between A-D:");
-                    userAnswer = Console.ReadLine().ToUpper();
-                }//end of whie loop 
-
-                switch (userAnswer)
-
-                {//START OF SWITCH LOOP
-                    case "A":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Powhiri");
-                        break;
-                    case "B":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Powhiri");
-                        break;
-                    case "C":
-                        Console.WriteLine($"\nGood job {name}!That was the correct answer<3");
-                        score++;
-                        break;
-                    case "D":
-                        Console.WriteLine($"\nNice try {name}! The correct answer is C. Powhiri");
-                        break;
-                }//END OF SWITCH LOOP
-
-                Console.WriteLine("\n\t\t\t\t-----Press any key to continue-----");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop (FIFTH QUESTION)
-
-            string retry = "";
 
             Console.WriteLine($"Congratulations {name}! You scored {score}/5 good job!");
             Console.Write("Would you like to play again? (Y/N): ");
-            retry = Console.ReadLine().ToUpper();
+            string retry = Console.ReadLine().ToUpper();
 
             //while loop that validates the user's input for (Y/N)
             while (retry != "Y" && retry != "N") 
@@ -423,19 +255,24 @@ namespace MaoriAssessment
             }
 
 
-            string retry;
-            if (score < 3)
+            
+            //if statement determining the passing score for the quiz
+            if (score < 6)
             {
-                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
             }
-            else if (score > 5)
+            else if (score > 7)
             {
-                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
             }
 
-            
+            Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+            Console.ReadKey();
+            Console.Clear();
+
+
             Console.Write("Would you like to try again? (Y/N): ");
-            retry = Console.ReadLine().ToUpper();
+            string retry = Console.ReadLine().ToUpper();
 
             
             //while loop that validates the user's input for (Y/N)
@@ -528,11 +365,25 @@ namespace MaoriAssessment
                 Console.Clear();
             }
 
-            string retry = "";
+            
+            
+            //if statement determining the passing score for the quiz
+            if (score < 6)
+            {
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
+            }
+            else if (score > 7)
+            {
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
+            }
+
+            Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+            Console.ReadKey();
+            Console.Clear();
 
             Console.WriteLine($"Congratulations {name}! Your scored {score}/5 good job!");
             Console.Write("Would you like to try again? (Y/N): ");
-            retry = Console.ReadLine().ToUpper();
+            string retry = Console.ReadLine().ToUpper();
 
             //while loop that validates the user's input for (Y/N)
             while (retry != "Y" && retry != "N")
