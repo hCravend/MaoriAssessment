@@ -406,13 +406,13 @@ namespace MaoriAssessment
 
                 if (userAnswer.Contains(MedA[i]))
                 {
-                    Console.WriteLine($"Good job {name}! That was the correct answer <3");
-                    score++;
+                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                    score = score + 2;
 
                 }
                 else if (userAnswer != MedA[i])
                 {
-                    Console.WriteLine($"Nice try {name}! The correct answer was {MedA[i]}");
+                    Console.WriteLine($"\nNice try {name}! The correct answer was {MedA[i]}");
 
                 }
 
@@ -421,14 +421,23 @@ namespace MaoriAssessment
                 Qnum++;
                 Console.Clear();
             }
-           
-   
-            string retry = "";
 
-            Console.WriteLine($"Congratulations {name}! Your scored {score}/5 good job!");
+
+            string retry;
+            if (score < 3)
+            {
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");
+            }
+            else if (score > 5)
+            {
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");
+            }
+
+            
             Console.Write("Would you like to try again? (Y/N): ");
             retry = Console.ReadLine().ToUpper();
 
+            
             //while loop that validates the user's input for (Y/N)
             while (retry != "Y" && retry != "N")
             {
@@ -503,13 +512,13 @@ namespace MaoriAssessment
 
                 if (userAnswer.Contains(HardA[i])) 
                 {
-                    Console.WriteLine($"Good job {name}! That was the correct answer <3");
-                    score++;
+                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                    score = score + 2;
                     
                 }
                 else if (userAnswer != HardA[i])
                 {
-                    Console.WriteLine($"Nice try {name}! The correct answer was {HardA[i]}");
+                    Console.WriteLine($"\nNice try {name}! The correct answer was {HardA[i]}");
                     
                 }
 
