@@ -16,7 +16,7 @@ namespace MaoriAssessment
 
 
             Console.WriteLine("Welcome to the Maori Quiz! In this quiz you will get to choose between three difficulties easy, medium, and hard.");
-            Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 1 point and will be displayed.");
+            Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 2 points and will be displayed.");
             Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
@@ -162,10 +162,6 @@ namespace MaoriAssessment
             Console.Clear();
 
 
-
-
-
-            Console.WriteLine($"Congratulations {name}! You scored {score}/5 good job!");
             Console.Write("Would you like to play again? (Y/N): ");
             string retry = Console.ReadLine().ToUpper();
 
