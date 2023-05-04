@@ -119,12 +119,8 @@ namespace MaoriAssessment
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
 
-                //while loop validating the choices and will display an error message
-                while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
-                {//start of while loop
-                    Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
-                    user_ans = Console.ReadLine().ToUpper();
-                }//end of while loop
+                //called in validation method
+                validate_UserChoice(user_ans);
 
                 if (user_ans.Contains(EasyA[i]))//if loops that contains the array for the answers and will determine if the answer is correct
                 {
@@ -146,18 +142,10 @@ namespace MaoriAssessment
             }//end of for loop
 
 
+            //called in pass fail method
+            pass_fail()
 
-            //if statement determining the passing score for the quiz
-            if (score <= 6)
-            {
-                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
-            }
-            else if (score >= 8)
-            {
-                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
-            }
-
-           Console.Write("\nWould you like to play again? (Y/N): ");
+            Console.Write("\nWould you like to play again? (Y/N): ");
             string retry = Console.ReadLine().ToUpper();
 
             //while loop that validates the user's input for (Y/N)
@@ -219,12 +207,8 @@ namespace MaoriAssessment
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
 
-                //while loop validating the choices and will display an error message
-                while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
-                {//start of while loop
-                    Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
-                    user_ans = Console.ReadLine().ToUpper();
-                }//end of while loop
+                //called in validation method
+                validate_UserChoice(user_ans);
 
                 if (user_ans.Contains(MedA[i]))//if loop that contains the array for the answers and will determine if the answer is correct
                 {
@@ -246,16 +230,8 @@ namespace MaoriAssessment
             }//end of for loop
 
 
-            
-            //if statement determining the passing score for the quiz
-            if (score <= 6)
-            {
-                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
-            }
-            else if (score >= 8)
-            {
-                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
-            }
+            //called in pass_fail method
+            pass_fail()
 
             Console.Write("\nWould you like to try again? (Y/N): ");
             string retry = Console.ReadLine().ToUpper();
@@ -324,13 +300,9 @@ namespace MaoriAssessment
                 Console.WriteLine(HardQ[i]);//displays the quesstion and choices
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
-
-                //while loop validating the choices and will display an error message
-                while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
-                {//start of while loop
-                    Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
-                    user_ans = Console.ReadLine().ToUpper();
-                }//end of while loop
+                
+                //called in validating method
+                validate_UserChoice(user_ans);
 
                 if (user_ans.Contains(HardA[i]))//if loop that contains the array for the answers and will determine if the answer is correct  
                 {
@@ -352,7 +324,7 @@ namespace MaoriAssessment
             }//end of for loop
 
 
-
+            //called in pass_fail method
             pass_fail()
 
 
@@ -396,6 +368,16 @@ namespace MaoriAssessment
             {//start of else if
                 Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
             }//end of else if 
+        }
+
+        static void validate_UserChoice(string user_ans)
+        {
+            //while loop validating the choices and will display an error message
+            while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
+            {//start of while loop
+                Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
+                user_ans = Console.ReadLine().ToUpper();
+            }//end of while loop
         }
     }
 } 
