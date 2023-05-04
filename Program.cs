@@ -110,12 +110,11 @@ namespace MaoriAssessment
             
             string user_ans;
             int score = 0;
-            int Qnum = 1;
-
+           
             for (int i = 0; i < 5; i++)//loops through all of the questions by 5
             {//start of for loop
                 Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {Qnum}");// displays the question number 
+                Console.WriteLine($"Question {i + 1}");// displays the question number 
                 Console.WriteLine(EasyQ[i]);//displays the question and choices
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
@@ -143,7 +142,6 @@ namespace MaoriAssessment
 
                 Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
                 Console.ReadKey();
-                Qnum++;
                 Console.Clear();
             }//end of for loop
 
@@ -212,12 +210,11 @@ namespace MaoriAssessment
 
             string user_ans;
             int score = 0;
-            int Qnum = 1;
-
+           
             for (int i  = 0; i < 5; i++)//loops through all the questions by 5
             {//start of for loop
                 Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {Qnum}");// displays the question number
+                Console.WriteLine($"Question {i + 1}");// displays the question number
                 Console.WriteLine(MedQ[i]);//displays the question and choices
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
@@ -245,7 +242,6 @@ namespace MaoriAssessment
 
                 Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
                 Console.ReadKey();
-                Qnum++;
                 Console.Clear();
             }//end of for loop
 
@@ -324,7 +320,7 @@ namespace MaoriAssessment
             for(int i = 0; i < 5; i++)//loops through all of the questions by 5
             {//start of for loop
                 Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {i++}");//displays the question number
+                Console.WriteLine($"Question {i+1}");//displays the question number
                 Console.WriteLine(HardQ[i]);//displays the quesstion and choices
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
@@ -357,15 +353,7 @@ namespace MaoriAssessment
 
 
 
-            //if statement determining the passing score for the quiz
-            if (score <= 6)
-            {//start of if
-                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
-            }// end of if 
-            else if (score >= 8)
-            {//start of else if
-                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
-            }//end of else if 
+            pass_fail()
 
 
             Console.Write("\nWould you like to try again? (Y/N): ");
@@ -394,5 +382,20 @@ namespace MaoriAssessment
 
 
         }//end of hard method
+
+        
+        //a pass or fail method
+        static void pass_fail(num score string name) 
+        {
+            //if statement determining the passing score for the quiz
+            if (score <= 6)
+            {//start of if
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
+            }// end of if 
+            else if (score >= 8)
+            {//start of else if
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
+            }//end of else if 
+        }
     }
 } 
