@@ -145,29 +145,8 @@ namespace MaoriAssessment
             //called in pass fail method
             pass_fail()
 
-            Console.Write("\nWould you like to play again? (Y/N): ");
-            string retry = Console.ReadLine().ToUpper();
-
-            //while loop that validates the user's input for (Y/N)
-            while (retry != "Y" && retry != "N") 
-            {
-                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
-                retry = Console.ReadLine().ToUpper();
-            }
-
-            switch(retry)
-            {
-                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
-                case "Y": 
-                    Console.Clear();
-                    menu(name);
-                    break;
-                //if the user chooses "N" a goodbye message will appear and will thank the use for playing  and end the quiz
-                case "N":
-                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
-                    break;
-            }
-        
+            //called in restart method
+            restart()
         
         }//end of easy method
 
@@ -233,29 +212,8 @@ namespace MaoriAssessment
             //called in pass_fail method
             pass_fail()
 
-            Console.Write("\nWould you like to try again? (Y/N): ");
-            string retry = Console.ReadLine().ToUpper();
-
-            
-            //while loop that validates the user's input for (Y/N)
-            while (retry != "Y" && retry != "N")
-            {
-                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
-                retry = Console.ReadLine().ToUpper();
-            }
-
-            switch (retry)
-            {
-                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
-                case "Y":
-                    Console.Clear();
-                    menu(name);
-                    break;
-                //if the user chooses "N" a goodbye message will appear and will thank the user for playing and end the quiz.
-                case "N":
-                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
-                    break;
-            }
+            //called in restart method
+            restart(string name)
 
 
 
@@ -328,28 +286,8 @@ namespace MaoriAssessment
             pass_fail()
 
 
-            Console.Write("\nWould you like to try again? (Y/N): ");
-            string retry = Console.ReadLine().ToUpper();
-
-            //while loop that validates the user's input for (Y/N)
-            while (retry != "Y" && retry != "N")
-            {//start of while loop
-                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
-                retry = Console.ReadLine().ToUpper();
-            }//end of while loop
-
-            switch (retry)
-            {//start of switch loop
-                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
-                case "Y":
-                    Console.Clear();
-                    menu(name);
-                    break;
-                //if the user chooses "N" a goodbye message will appear and will thank the user for playing and end the quiz.
-                case "N":
-                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
-                    break;
-            }//end of switch loop
+            //called in restart method
+            restart(string name)
 
 
 
@@ -371,13 +309,39 @@ namespace MaoriAssessment
         }
 
         static void validate_UserChoice(string user_ans)
-        {
+        {//start of validation method
             //while loop validating the choices and will display an error message
             while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
             {//start of while loop
                 Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
                 user_ans = Console.ReadLine().ToUpper();
             }//end of while loop
-        }
+        }//end of validation method
+
+        static void restart(string name)
+        {//start of restart method
+            Console.Write("\nWould you like to play again? (Y/N): ");
+            string retry = Console.ReadLine().ToUpper();
+
+            //while loop that validates the user's input for (Y/N)
+            while (retry != "Y" && retry != "N")
+            {
+                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
+                retry = Console.ReadLine().ToUpper();
+            }
+
+            switch (retry)
+            {
+                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
+                case "Y":
+                    Console.Clear();
+                    menu(name);
+                    break;
+                //if the user chooses "N" a goodbye message will appear and will thank the use for playing  and end the quiz
+                case "N":
+                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
+                    break;
+            }
+        }//end of restart method
     }
 } 
