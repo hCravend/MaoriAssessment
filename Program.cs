@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace MaoriAssessment
 {
@@ -23,14 +24,26 @@ namespace MaoriAssessment
 
             menu();
 
+            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
+            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
+            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
+            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
+            Console.ReadKey();//makes the user press a key before continuing the test
+            Console.Clear();
+
+            int score = 0;
+            string user_ans;
+
+            play()
+
+            pass_fail()
+
             restart();
 
         }//end of main method
 
         static void start()
         {//start of start method
-            
-            
             Console.WriteLine("Welcome to the Maori Quiz!"); //greets the user
             Console.Write("Please input your name: "); //asks the user to input their name
             string name = Console.ReadLine();
@@ -45,10 +58,6 @@ namespace MaoriAssessment
             Console.WriteLine("\n\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
-            
-
-            
-
         }//end of start method
 
         static void menu(string name)
@@ -70,178 +79,12 @@ namespace MaoriAssessment
             }
 
 
-            //The switch statement is selecting a function to execute based on the value of the "difficulty" variable.
-             switch (difficulty)
-            {
-                case "1":
-                    Easy(name);
-                    break;
-                case "2":
-                    Medium(name);
-                    break;
-                case "3":
-                    Hard(name);
-                    break;
-            }
 
         }//end of menu method
 
-        static void Easy(string name)
-        {//start of easy method
+        
 
-            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
-            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
-            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
-            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
-            Console.ReadKey();//makes the user press a key before continuing the test
-            Console.Clear();
-
-            string user_ans;
-            int score = 0;
-           
-            //called in play method
-            play()
-
-            //called in pass fail method
-            pass_fail()
-
-        }//end of easy method
-
-        static void Medium(string name)
-        {//start of medium method
-
-            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
-            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
-            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
-            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
-            Console.ReadKey();//makes the user press a key before continuing the test
-            Console.Clear();
-
-            //stores all of the medium questions
-            string[] MedQ = new string[5];
-            MedQ[0] = "\nWhat is the traditional Maori greeting?\nA. Kia ora\r\nB. Haere mai\r\nC. Whakapapa\r\nD. Tino rangatiratanga";
-            MedQ[1] = "\nWhat is the name of the Maori cultural dance?\nA. Haka\r\nB. Waiata\r\nC. Karakia\r\nD. Kapa haka";
-            MedQ[2] = "\nWhich famous Maori leader signed the Treaty of Waitangi on behalf of the Maori people in 1840?\nA. Te Rauparaha\r\nB. Te Wherowhero\r\nC. Te Puea Herangi\r\nD. Hone Heke";
-            MedQ[3] = "\nWhat is the traditional Maori method of cooking food using heated rocks in a pit?\nA. Hapū\r\nB. Hangi\r\nC. Hui\r\nD. Haka";
-            MedQ[4] = "\nWhat is the name of the Maori goddess of the sea?\nA. Hine-nui-te-pō\r\nB. Tawhiri-mātea\r\nC. Tangaroa\r\nD. Rongo-mai";
-
-            string[] MedA = new string[5];
-            MedA[0] = "A";
-            MedA[1] = "D";
-            MedA[2] = "B";
-            MedA[3] = "B";
-            MedA[4] = "C";
-
-            string user_ans;
-            int score = 0;
-           
-            for (int i  = 0; i < 5; i++)//loops through all the questions by 5
-            {//start of for loop
-                Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {i + 1}");// displays the question number
-                Console.WriteLine(MedQ[i]);//displays the question and choices
-                Console.Write("Please choose an answer: ");
-                user_ans = Console.ReadLine().ToUpper();
-
-                //called in validation method
-                validation(user_ans);
-
-                if (user_ans.Contains(MedA[i]))//if loop that contains the array for the answers and will determine if the answer is correct
-                {
-                    //if the answer is correct it will display this message
-                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                    score = score + 2;
-
-                }
-                else if (user_ans != MedA[i])
-                {
-                   //if the answer is wrong it will display this message
-                    Console.WriteLine($"\nNice try {name}! The correct answer was {MedA[i]}");
-
-                }
-
-                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop
-
-
-            //called in pass_fail method
-            pass_fail()
-
-          
-        }//end of medium method
-            
-
-        static void Hard(string name)
-        {//start of hard method
-           
-            Console.Clear();// Clears the menu after the user selects a difficulty and displays the instructions
-            Console.WriteLine("This is a 5 question multiple choice quiz. Please Choose an answer between A-D.");
-            Console.WriteLine("Your score and the ammount of questions you have left will be displayed on the top left side of the test.");
-            Console.WriteLine("\n\t\t\t\t\t-----PRESS ANY KEY TO CONTINUE-----");
-            Console.ReadKey();//makes the user press a key before continuing the test
-            Console.Clear();
-
-            //stores all of the hard questions in an array
-            string[] HardQ = new string[5];
-            HardQ[0] = "\nWhat is the name of the sacred Maori mountain located in the central North Island of New Zealand\nA. Taranaki\r\nB. Tongariro\r\nC. Aoraki\r\nD. Ruapehu";
-            HardQ[1] = "\nWhat is the name of the Maori language commission responsible for promoting and protecting the Maori language in New Zealand?\nA. Te Puni Kokiri\r\nB. Te Taura Whiri i te Reo Maori\r\nC. Te Mangai Paho\r\nD. Te Whakakitenga Maori";
-            HardQ[2] = "\nWhat is the name of the Maori goddess of the forest?\nA. Hine-nui-te-po\r\nB. Tane Mahuta\r\nC. Papatuanuku\r\nD. Ranginui";
-            HardQ[3] = "\nWhat is the name of the traditional Maori art form that involves the carving of wood or stone?\r\nA. Whakairo\r\nB. Raranga\r\nC. Ta moko\r\nD. Kapa haka";
-            HardQ[4] = "\nWhat is the name of the famous Maori leader who led the Taranaki iwi during the New Zealand Wars of the 1860s\r\nA. Te Rauparaha\r\nB. Wiremu Kingi\r\nC. Te Whiti o Rongomai\r\nD. Hone Heke";
-
-            //stores all of the answers for each question
-            string[] HardA = new string[5];
-            HardA[0] = "B";
-            HardA[1] = "B";
-            HardA[2] = "B";
-            HardA[3] = "A";
-            HardA[4] = "C";
-
-            int score = 0;
-            string user_ans;
-           
-
-
-            for(int i = 0; i < 5; i++)//loops through all of the questions by 5
-            {//start of for loop
-                Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {i+1}");//displays the question number
-                Console.WriteLine(HardQ[i]);//displays the quesstion and choices
-                Console.Write("Please choose an answer: ");
-                user_ans = Console.ReadLine().ToUpper();
-                
-                //called in validating method
-                validation(user_ans);
-
-                if (user_ans.Contains(HardA[i]))//if loop that contains the array for the answers and will determine if the answer is correct  
-                {
-                    //if the answer is correct it will display this message
-                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                    score = score + 2;
-                    
-                }
-                else if (user_ans != HardA[i])
-                {
-                    //if the answer is wrong it will display this message
-                    Console.WriteLine($"\nNice try {name}! The correct answer was {HardA[i]}");
-                    
-                }
-
-                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop
-
-
-            //called in pass_fail method
-            pass_fail()
-
-
-
-        }//end of hard method
-
+        //play method that stores all of the questions and answers of each difficulty and loops through all of them
         public void play(string difficuly, string user_ans, int score, string name)
         {//start of playgame method
             string[] questions = new string[5];
@@ -254,6 +97,13 @@ namespace MaoriAssessment
                     answers = {"A", "C", "B", "A", "C" };
                     break
 
+                case "2"://medium difficulty
+                    questions = { "\nWhat is the traditional Maori greeting?\nA. Kia ora\r\nB. Haere mai\r\nC. Whakapapa\r\nD. Tino rangatiratanga", "\nWhat is the name of the Maori cultural dance?\nA. Haka\r\nB. Waiata\r\nC. Karakia\r\nD. Kapa haka", "\nWhich famous Maori leader signed the Treaty of Waitangi on behalf of the Maori people in 1840?\nA. Te Rauparaha\r\nB. Te Wherowhero\r\nC. Te Puea Herangi\r\nD. Hone Heke", "\nWhat is the traditional Maori method of cooking food using heated rocks in a pit?\nA. Hapū\r\nB. Hangi\r\nC. Hui\r\nD. Haka", "\nWhat is the name of the Maori goddess of the sea?\nA. Hine-nui-te-pō\r\nB. Tawhiri-mātea\r\nC. Tangaroa\r\nD. Rongo-mai"};
+                    answers = {"A", "D", "B", "B", "C"};
+                    break
+                case "3"://hard difficulty
+                    questions = { "\nWhat is the name of the sacred Maori mountain located in the central North Island of New Zealand\nA. Taranaki\r\nB. Tongariro\r\nC. Aoraki\r\nD. Ruapehu", "\nWhat is the name of the Maori language commission responsible for promoting and protecting the Maori language in New Zealand?\nA. Te Puni Kokiri\r\nB. Te Taura Whiri i te Reo Maori\r\nC. Te Mangai Paho\r\nD. Te Whakakitenga Maori", "\nWhat is the name of the Maori goddess of the forest?\nA. Hine-nui-te-po\r\nB. Tane Mahuta\r\nC. Papatuanuku\r\nD. Ranginui", "\nWhat is the name of the traditional Maori art form that involves the carving of wood or stone?\r\nA. Whakairo\r\nB. Raranga\r\nC. Ta moko\r\nD. Kapa haka", "\nWhat is the name of the famous Maori leader who led the Taranaki iwi during the New Zealand Wars of the 1860s\r\nA. Te Rauparaha\r\nB. Wiremu Kingi\r\nC. Te Whiti o Rongomai\r\nD. Hone Heke"};
+                    answers = { "B", "B", "B", "A", "C"}
             }//end of swtich loop
 
             for (int i = 0; i < 5; i++)//loops through all the questions by 5
@@ -288,7 +138,7 @@ namespace MaoriAssessment
 
         }//end of playgame method
 
-        //a pass or fail method
+        //determines if the user passes or fails and displays the score
         static void pass_fail(num score string name) 
         {
             //if statement determining the passing score for the quiz
@@ -302,6 +152,7 @@ namespace MaoriAssessment
             }//end of else if 
         }
 
+        //method for validation of input
         static void validation(string user_ans)
         {//start of validation method
             //while loop validating the choices and will display an error message
