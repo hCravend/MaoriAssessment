@@ -12,15 +12,19 @@ namespace MaoriAssessment
               The quiz consists of 5 multiple-choice questions, with each correct answer adding one point to the player's score. The game displays the player's score and the number of questions remaining after each question. The game loops through each question using a for loop with an iteration of 1.
 
              Each question is an element in an array of strings, with the answer choices presented to the player using a switch statement. The code also includes validation for invalid input, requiring the player to select a valid answer. */
-
-
-
+            
             Console.WriteLine("Welcome to the Maori Quiz! In this quiz you will get to choose between three difficulties easy, medium, and hard.");
             Console.WriteLine("\nThis is a multiple choice quiz of 5 questions each difficulty. You will get to choose between the choices (A-D). For every right answer your score will be added by 2 points. To pass this quiz you will need to score 8 points. Goodluck and have fun!");
             Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
+            
             start();
+
+            menu();
+
+            restart();
+
         }//end of main method
 
         static void start()
@@ -41,7 +45,7 @@ namespace MaoriAssessment
             Console.WriteLine("\n\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
-            menu(name);
+            
 
             
 
@@ -92,62 +96,15 @@ namespace MaoriAssessment
             Console.ReadKey();//makes the user press a key before continuing the test
             Console.Clear();
 
-            //stores all of the easy questions
-            string[] EasyQ = new string[5];
-            EasyQ[0] = "\nWhat is the name of the country where the Maori people are indigenous?\nA. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa";
-            EasyQ[1] = "\nWhat is the Maori word for \"goodbye\"\nA. Kia ora\r\nB. Haere mai\r\nC. Ka kite ano\r\nD. Aroha mai";
-            EasyQ[2] = "\nWhat is the name of the famous Maori warrior who is known for his facial tattoos?\nA. Tūhoe\r\nB. Te Rauparaha\r\nC. Tāne Mahuta\r\nD. Māui";
-            EasyQ[3] = "\nWhat is the Maori word for \"family\"\nA. Whānau\r\nB. Hapū\r\nC. Marae\r\nD. Iwi";
-            EasyQ[4] = "\nWhat is the name of the Maori ritual in which a newborn baby is introduced to their family and community?\nA. Karakia\r\nB. Hongi\r\nC. Powhiri\r\nD. Haka";
-
-            //stores all of the easy answers
-            string[] EasyA = new string[5];
-            EasyA[0] = "A";
-            EasyA[1] = "C";
-            EasyA[2] = "B";
-            EasyA[3] = "A";
-            EasyA[4] = "C";
-            
             string user_ans;
             int score = 0;
            
-            for (int i = 0; i < 5; i++)//loops through all of the questions by 5
-            {//start of for loop
-                Console.WriteLine($"Score:{score}");//displays the score
-                Console.WriteLine($"Question {i + 1}");// displays the question number 
-                Console.WriteLine(EasyQ[i]);//displays the question and choices
-                Console.Write("Please choose an answer: ");
-                user_ans = Console.ReadLine().ToUpper();
-
-                //called in validation method
-                validate_UserChoice(user_ans);
-
-                if (user_ans.Contains(EasyA[i]))//if loops that contains the array for the answers and will determine if the answer is correct
-                {
-                    //if the answer is correct it will display this message
-                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
-                    score = score + 2;
-
-                }
-                else if (user_ans != EasyA[i])
-                {
-                    //if the answer is wrong it will display this message
-                    Console.WriteLine($"\nNice try {name}! The correct answer was {EasyA[i]}");
-
-                }
-
-                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
-                Console.ReadKey();
-                Console.Clear();
-            }//end of for loop
-
+            //called in play method
+            play()
 
             //called in pass fail method
             pass_fail()
 
-            //called in restart method
-            restart()
-        
         }//end of easy method
 
         static void Medium(string name)
@@ -187,7 +144,7 @@ namespace MaoriAssessment
                 user_ans = Console.ReadLine().ToUpper();
 
                 //called in validation method
-                validate_UserChoice(user_ans);
+                validation(user_ans);
 
                 if (user_ans.Contains(MedA[i]))//if loop that contains the array for the answers and will determine if the answer is correct
                 {
@@ -212,11 +169,7 @@ namespace MaoriAssessment
             //called in pass_fail method
             pass_fail()
 
-            //called in restart method
-            restart(string name)
-
-
-
+          
         }//end of medium method
             
 
@@ -260,7 +213,7 @@ namespace MaoriAssessment
                 user_ans = Console.ReadLine().ToUpper();
                 
                 //called in validating method
-                validate_UserChoice(user_ans);
+                validation(user_ans);
 
                 if (user_ans.Contains(HardA[i]))//if loop that contains the array for the answers and will determine if the answer is correct  
                 {
@@ -286,14 +239,55 @@ namespace MaoriAssessment
             pass_fail()
 
 
-            //called in restart method
-            restart(string name)
-
-
 
         }//end of hard method
 
-        
+        public void play(string difficuly, string user_ans, int score, string name)
+        {//start of playgame method
+            string[] questions = new string[5];
+            string[] answers = new string[5];
+
+            switch (difficuly)
+            {//start of switch loop
+                case "1"://Easy difficulty 
+                    questions = { "\nWhat is the name of the country where the Maori people are indigenous?\nA. New Zealand\r\nB. Australia\r\nC. Fiji\r\nD. Samoa", "\nWhat is the Maori word for \"goodbye\"\nA. Kia ora\r\nB. Haere mai\r\nC. Ka kite ano\r\nD. Aroha mai", "\nWhat is the name of the famous Maori warrior who is known for his facial tattoos?\nA. Tūhoe\r\nB. Te Rauparaha\r\nC. Tāne Mahuta\r\nD. Māui", "\nWhat is the Maori word for \"family\"\nA. Whānau\r\nB. Hapū\r\nC. Marae\r\nD. Iwi", "\nWhat is the name of the Maori ritual in which a newborn baby is introduced to their family and community?\nA. Karakia\r\nB. Hongi\r\nC. Powhiri\r\nD. Haka"};
+                    answers = {"A", "C", "B", "A", "C" };
+                    break
+
+            }//end of swtich loop
+
+            for (int i = 0; i < 5; i++)//loops through all the questions by 5
+            {//start of for loop
+                Console.WriteLine($"Score:{score}");//displays the score
+                Console.WriteLine($"Question {i + 1}");// displays the question number
+                Console.WriteLine(questions[i]);//displays the question and choices
+                Console.Write("Please choose an answer: ");
+                user_ans = Console.ReadLine().ToUpper();
+
+                //called in validation method
+                validation(user_ans);
+
+                if (user_ans.Contains(answers[i]))//if loop that contains the array for the answers and will determine if the answer is correct
+                {
+                    //if the answer is correct it will display this message
+                    Console.WriteLine($"\nGood job {name}! That was the correct answer <3");
+                    score = score + 2;
+
+                }
+                else if (user_ans != answers[i])
+                {
+                    //if the answer is wrong it will display this message
+                    Console.WriteLine($"\nNice try {name}! The correct answer was {answers[i]}");
+
+                }
+
+                Console.WriteLine("\n\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
+                Console.ReadKey();
+                Console.Clear();
+            }//end of for loop
+
+        }//end of playgame method
+
         //a pass or fail method
         static void pass_fail(num score string name) 
         {
@@ -308,7 +302,7 @@ namespace MaoriAssessment
             }//end of else if 
         }
 
-        static void validate_UserChoice(string user_ans)
+        static void validation(string user_ans)
         {//start of validation method
             //while loop validating the choices and will display an error message
             while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
