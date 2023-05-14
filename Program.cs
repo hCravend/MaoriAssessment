@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 
 namespace MaoriAssessment
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args, string name)
         {//start of main method
             
             /*The game displays a menu of difficulty levels to choose from, and the player selects one. After selecting a difficulty level, the game clears the console and displays instructions for the quiz.
@@ -19,7 +19,7 @@ namespace MaoriAssessment
             Console.WriteLine("\n\t\t\t\t\t------PRESS ANY KEY TO CONTINUE------");
             Console.ReadKey();
             Console.Clear();
-            
+
             start();
 
             menu();
@@ -34,11 +34,40 @@ namespace MaoriAssessment
             int score = 0;
             string user_ans;
 
-            play()
+            play();
 
-            pass_fail()
+            //if statement determining the passing score for the quiz
+            if (score <= 6)
+            {//start of if
+                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
+            }// end of if 
+            else if (score >= 8)
+            {//start of else if
+                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
+            }//end of else if 
 
-            restart();
+            Console.Write("\nWould you like to play again? (Y/N): ");
+            string retry = Console.ReadLine().ToUpper();
+
+            //while loop that validates the user's input for (Y/N)
+            while (retry != "Y" && retry != "N")
+            {
+                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
+                retry = Console.ReadLine().ToUpper();
+            }
+
+            switch (retry)
+            {
+                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
+                case "Y":
+                    Console.Clear();
+                    menu(name);
+                    break;
+                //if the user chooses "N" a goodbye message will appear and will thank the use for playing  and end the quiz
+                case "N":
+                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
+                    break;
+            }
 
         }//end of main method
 
@@ -78,11 +107,8 @@ namespace MaoriAssessment
                 difficulty = (Console.ReadLine());
             }
 
-
-
         }//end of menu method
 
-        
 
         //play method that stores all of the questions and answers of each difficulty and loops through all of them
         public void play(string difficuly, string user_ans, int score, string name)
@@ -113,9 +139,13 @@ namespace MaoriAssessment
                 Console.WriteLine(questions[i]);//displays the question and choices
                 Console.Write("Please choose an answer: ");
                 user_ans = Console.ReadLine().ToUpper();
-
-                //called in validation method
-                validation(user_ans);
+                
+                //while loop validating the choices and will display an error message
+                while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
+                {//start of while loop
+                    Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
+                    user_ans = Console.ReadLine().ToUpper();
+                }//end of while loop
 
                 if (user_ans.Contains(answers[i]))//if loop that contains the array for the answers and will determine if the answer is correct
                 {
@@ -138,55 +168,5 @@ namespace MaoriAssessment
 
         }//end of playgame method
 
-        //determines if the user passes or fails and displays the score
-        static void pass_fail(num score string name) 
-        {
-            //if statement determining the passing score for the quiz
-            if (score <= 6)
-            {//start of if
-                Console.WriteLine($"Good effort {name}! You scored {score}/10, so close!");//if the user gets 6 below they fail
-            }// end of if 
-            else if (score >= 8)
-            {//start of else if
-                Console.WriteLine($"Amazing job {name}! You scored {score}/10, fantastic! ");//if the user gets anything higher they pass
-            }//end of else if 
-        }
-
-        //method for validation of input
-        static void validation(string user_ans)
-        {//start of validation method
-            //while loop validating the choices and will display an error message
-            while (user_ans != "A" && user_ans != "B" && user_ans != "C" && user_ans != "D")
-            {//start of while loop
-                Console.Write($"\n{user_ans} is not a valid choice. Please choose between A-D:");
-                user_ans = Console.ReadLine().ToUpper();
-            }//end of while loop
-        }//end of validation method
-
-        static void restart(string name)
-        {//start of restart method
-            Console.Write("\nWould you like to play again? (Y/N): ");
-            string retry = Console.ReadLine().ToUpper();
-
-            //while loop that validates the user's input for (Y/N)
-            while (retry != "Y" && retry != "N")
-            {
-                Console.Write($"\n{retry} is not a valid choice. Please choose between (Y/N): ");
-                retry = Console.ReadLine().ToUpper();
-            }
-
-            switch (retry)
-            {
-                //if the user chooses "Y" it will return to the menu method and repeat the whole quiz
-                case "Y":
-                    Console.Clear();
-                    menu(name);
-                    break;
-                //if the user chooses "N" a goodbye message will appear and will thank the use for playing  and end the quiz
-                case "N":
-                    Console.WriteLine($"\nGoodbye {name}! Thank you for playing!");
-                    break;
-            }
-        }//end of restart method
     }
 } 
