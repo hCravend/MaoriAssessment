@@ -11,15 +11,18 @@ This is a console-based quiz application in C# which quizzes the user on Maori c
 5. The user's total score is displayed at the end of the quiz. To pass the quiz, the user must score at least eight points out of ten.
 6. After the quiz ends, the user is asked if they want to take the quiz again.
 
-## Key Requirements
-- **.NET Environment**: This application requires a .NET environment (ideally .NET Core 3.1 or later) to run.
-- **Console/Terminal**: As a console application, this program requires a terminal to interact with the user.
+## How to Download and Run the Software
 
-## How to Run the Software
-1. Clone or download the source code to your local machine.
-2. Open a terminal/console window.
-3. Navigate to the directory where the source code is located.
-4. If you're using the .NET Core CLI, type `dotnet run` to start the application.
+1. **Downloading from GitHub:**
+    - Navigate to the repository page on GitHub.
+    - Click on the green "Code" button near the top right of the page. 
+    - In the dropdown that appears, click on "Download ZIP".
+    - Find the downloaded ZIP file in your computer's downloads folder. Unzip the file by right-clicking on it and selecting "Extract All..." or similar option depending on your system.
+
+2. **Running the .exe file:**
+    - After unzipping the downloaded file, navigate into the unzipped folder.
+    - Locate the executable file (.exe) of the program. It's usually located inside a `bin/Debug` or `bin/Release` folder, depending on the configuration.
+    - Double-click on the .exe file to run the program. This will open a console window where you can interact with the program.
 
 ## Features
 - User input validation: The application checks for valid inputs at each stage, ensuring the user only enters appropriate responses.
